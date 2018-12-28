@@ -8,6 +8,34 @@ var clean = require('gulp-clean-css');
 
 
 
+var uglify = require('gulp-uglify');
+var sass = require('gulp-sass');
+
+//压缩css
+gulp.task('clean', function() {
+    return gulp.src('./css/*.css')
+        .pipe(clean())
+        .pipe(gulp.dest('./css/'))
+})
+
+//压缩js
+gulp.task('uglify', function() {
+    return gulp.src('./js/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('./js/'))
+})
+
+//编译scss
+gulp.task('sass', function() {
+    return gulp.src('./scss/index.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('./css/index.css'))
+})
+
+//编译
+gulp.task('watch', function() {
+    return gulp.watch('./scss/index.scss', gulp.series('sass'))
+})
 
 //主
 gulp.task('webser', function() {
