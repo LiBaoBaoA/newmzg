@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<script src="js/flexible.js"></script>
+
+<body>
+    <div class="wrap">
+        <header>
+            <ul>
+                <li><b><</b>返回</li>
+                <li>喵掌柜杂货铺</li>
+                <li>···</li>
+            </ul>
+        </header>
+        <section>
+            <div class="top">
+                <dl>
+                    <dt><img src="assets/images/img_03.jpg" alt=""></dt>
+                    <dd>请选择配送地址</dd>
+                </dl>
+            </div>
+            <div class="head">
+                <dl>
+                    <dt><img src="assets/images/img_06.jpg" alt=""></dt>
+                    <dd>
+                        <h1>喵掌柜杂货店 <span>(已打样)</span></h1>
+                        <b><p>包邮</p>满40包邮</b>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><img src="assets/images/img_09.jpg" alt=""></dt>
+                    <dd>
+                        <p>已关注</p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="banner">
+                <img src="assets/images/img_13.jpg" alt="">
+            </div>
+            <div class="nav">
+                <ul>
+                    <li class="active">热卖商品</li>
+                    <li>店家推荐</li>
+                    <li>跳楼促销</li>
+                </ul>
+            </div>
+            <!-- <div class="btn">
+                  <dl>
+                    <dt><img src="assets/images/img_16.jpg" alt=""></dt>
+                    <dd>
+                        <h1>猫掌柜梅花软糖混合口味批发零售超级好吃qq糖1000g</h1>
+                        <p>规格：1000G</p>
+                        <span>￥40元</span>
+                        <b>+</b>
+                    </dd>
+                </dl>
+            </div>-->
+        </section>
+        <footer>
+            <dl>
+                <dt><img src="assets/icon/img1@2x.png" alt=""></dt>
+                <dd>首页</dd>
+            </dl>
+            <dl>
+                <dt><img src="assets/icon/img@2x.png" alt=""></dt>
+                <dd>购物车</dd>
+            </dl>
+            <dl>
+                <dt><img src="assets/icon/img2@2x.png" alt=""></dt>
+                <dd>我的</dd>
+            </dl>
+        </footer>
+    </div>
+
+    <script>
+        var section = document.querySelector('section');
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', '/list');
+        xhr.onload = function(res) {
+            render(JSON.parse(res.target.responseText))
+        }
+        xhr.send();
+
+        function render(data) {
+            data.data.map(function(item, i) {
+                section.innerHTML += `<div class="btn">
+                  <dl>
+                    <dt><img src="${item.img}" alt=""></dt>
+                    <dd>
+                        <h1>${item.name}</h1>
+                        <p>${item.qian}</p>
+                        <span>${item.span}</span>
+                        <b>${item.to}</b>
+                    </dd>
+                </dl>
+            </div>`;
+            })
+        }
+    </script>
+</body>
+
+
+</html>

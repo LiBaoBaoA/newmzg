@@ -1,0 +1,24 @@
+{
+  "name": "mzg",
+  "version": "1.0.0",
+  "description": "mzg",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiBaoBaoA/mzg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiBaoBaoA/mzg/issues"
+  },
+  "homepage": "https://github.com/LiBaoBaoA/mzg#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-webserver": "^0.9.1"
+  }
+}
